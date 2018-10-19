@@ -10,8 +10,7 @@ const MovieReviews = ({reviews}) => <div className="review-list">{reviews.map(
         <p>Summary: {review.summary_short}</p>
       </div>
       )
-    })  
+    })
   }</div>;
 
 export default MovieReviews;
-
