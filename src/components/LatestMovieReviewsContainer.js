@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'isomorphic-fetch';
 import MovieReviews from './MovieReviews'
 
@@ -17,15 +17,16 @@ class LatestMovieReviewsContainer extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://api.nytimes.com/svc/movies/v2/reviews/all.json?')
+    fetch(URL)
     .then(response => response.json())
-    .then(reviews => this.setState({reviews}));
+    .then(data => this.setState({reviews: data.results}));
   }
 
   render() {
     return (
       <div className="latest-movie-reviews">
-        {reviews}
+        <h3> Latest Movie Reviews: </h3>
+        <MovieReviews reviews={this.state.reviews}/>
       </div>
     );
   }
